@@ -1,0 +1,6 @@
+{
+  "name": "School Task & KPI Management",
+  "description": "Nền tảng quản lý công việc, KPI và báo cáo cho trường học tích hợp Supabase PostgreSQL và phân quyền người dùng.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
