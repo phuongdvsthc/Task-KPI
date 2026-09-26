@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TenantConfiguration",
+  "description": "Cấu hình triển khai riêng cho từng trường/cơ sở giáo dục (v0.9-C5-D)",
+  "type": "object",
+  "required": [
+    "tenantCode",
+    "tenantName",
+    "tenantShortName",
+    "contactInfo",
+    "website",
+    "timezone",
+    "rootUnit",
+    "enabledModules"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "tenantCode": {
+      "type": "string",
+      "pattern": "^[A-Z0-9_-]{2,20}$",
+      "description": "Mã định danh duy nhất của trường (ví dụ: VTC, STHC, CCT)"
+    },
+    "tenantName": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Tên đầy đủ của trường"
+    },
+    "tenantShortName": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Tên viết tắt của trường"
+    },
+    "contactInfo": {
+      "type": "object",
+      "required": ["email", "phone", "address"],
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" }
+      }
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "description": "Trang web chính thức của trường"
+    },
+    "timezone": {
+      "type": "string",
+      "default": "Asia/Ho_Chi_Minh",
+      "description": "Múi giờ IANA (ví dụ: Asia/Ho_Chi_Minh)"
+    },
+    "dateFormat": {
+      "type": "string",
+      "default": "DD/MM/YYYY"
+    },
+    "locale": {
+      "type": "string",
+      "default": "vi"
+    },
+    "rootUnit": {
+      "type": "object",
+      "required": ["code", "name"],
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "unitType": { "type": "string", "default": "school" },
+        "description": { "type": "string" }
+      }
+    },
+    "enabledModules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "task",
+          "kpi",
+          "team_report",
+          "admissions",
+          "dashboard",
+          "system",
+          "ai",
+          "notification",
+          "user_org",
+          "file_evidence",
+          "access_control"
+        ]
+      },
+      "minItems": 1
+    },
+    "appName": { "type": "string" },
+    "logoPath": { "type": "string" },
+    "logoSmallPath": { "type": "string" },
+    "faviconPath": { "type": "string" },
+    "dailyReportDeadline": { "type": "string" },
+    "workingDays": { "type": "string" },
+    "appearanceMode": { "type": "string", "enum": ["light", "dark", "system"] },
+    "appearanceAccent": { "type": "string", "enum": ["indigo", "blue", "teal"] }
+  },
+  "additionalProperties": false
+}

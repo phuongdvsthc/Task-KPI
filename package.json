@@ -77,8 +77,6 @@
     "self-test:v0.9-ai-b3": "tsx test_v0.9-ai-b3.ts",
     "self-test:v0.9-ai-c1": "tsx test_v0.9-ai-c1.ts",
     "self-test:ai-config": "tsx test_ai_config.ts",
-    "self-test:ai-d3-hotfix": "tsx scripts/self-test-ai-d3-hotfix.ts",
-    "self-test:ai-d3-hotfix2": "tsx scripts/self-test-ai-d3-hotfix2.ts",
     "self-test:api-fallback": "tsx test_api_json_fallback.ts",
     "self-test:v0.7-executive-dashboard": "npm run self-test:v0.7-d1 && npm run self-test:v0.7-d2 && npm run self-test:v0.7-d3 && npm run self-test:v0.7-d4-1 && npm run self-test:v0.7-d4-2 && npm run self-test:v0.7-d4-3 && npm run self-test:v0.7-d5-1 && npm run self-test:v0.7-d5-2 && npm run self-test:v0.7-d5-3 && npm run self-test:v0.7-d5-4",
     "self-test:v0.7": "npm run self-test:v0.7-staff-dashboard && npm run self-test:v0.7-manager-dashboard && npm run self-test:v0.7-executive-dashboard && npm run self-test:v0.7-e1 && npm run self-test:v0.7-e2 && npm run self-test:v0.7-e3 && npm run self-test:v0.7-e4 && npm run self-test:v0.7-e5-1 && npm run self-test:v0.7-e5-2 && npm run self-test:v0.7-e5-3 && npm run self-test:v0.7-e5-4",
