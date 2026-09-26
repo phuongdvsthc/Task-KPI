@@ -1,0 +1,391 @@
+{
+  "is_admin": {
+    "args": [],
+    "returnType": "void"
+  },
+  "update_task_progress": {
+    "args": [
+      "p_content: string",
+      "p_progress: integer",
+      "p_status: string",
+      "p_task_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_can_enter_manual_actual": {
+    "args": [
+      "p_assignment_binding_id: string"
+    ],
+    "returnType": "void"
+  },
+  "can_write_daily_metric_entry": {
+    "args": [
+      "p_metric_definition_id: string",
+      "p_organization_unit_id: string",
+      "p_source_reference_id: string",
+      "p_user_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_can_manage_template": {
+    "args": [
+      "p_template_id: string"
+    ],
+    "returnType": "void"
+  },
+  "is_task_participant": {
+    "args": [
+      "p_task_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_can_view_template": {
+    "args": [
+      "p_template_id: string"
+    ],
+    "returnType": "void"
+  },
+  "can_manage_unit": {
+    "args": [
+      "p_unit_id: string"
+    ],
+    "returnType": "void"
+  },
+  "get_manager_report_status": {
+    "args": [
+      "p_end_date: string",
+      "p_start_date: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_can_manage_assignment_item": {
+    "args": [
+      "p_assignment_item_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_is_admin": {
+    "args": [],
+    "returnType": "void"
+  },
+  "can_read_metric_definition": {
+    "args": [
+      "p_metric_definition_id: string"
+    ],
+    "returnType": "void"
+  },
+  "is_unit_descendant_or_self": {
+    "args": [
+      "p_root_unit_id: string",
+      "p_target_unit_id: string"
+    ],
+    "returnType": "void"
+  },
+  "get_user_role": {
+    "args": [],
+    "returnType": "void"
+  },
+  "kpi_can_view_unit": {
+    "args": [
+      "p_unit_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_resolve_assignment_actuals": {
+    "args": [
+      "p_assignment_id: string"
+    ],
+    "returnType": "void"
+  },
+  "can_read_metric_entry_v2": {
+    "args": [
+      "p_daily_report_source_id: string",
+      "p_user_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_can_manage_assignment": {
+    "args": [
+      "p_assignment_id: string"
+    ],
+    "returnType": "void"
+  },
+  "can_create_daily_report_reminder": {
+    "args": [
+      "p_reminder_type: string",
+      "p_report_date: string",
+      "p_target_user_id: string"
+    ],
+    "returnType": "void"
+  },
+  "publish_announcement": {
+    "args": [
+      "p_task_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_get_actual_trace": {
+    "args": [
+      "p_assignment_item_id: string"
+    ],
+    "returnType": "void"
+  },
+  "mark_announcement_viewed": {
+    "args": [
+      "p_task_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_can_assign_to_user": {
+    "args": [
+      "p_user_id: string"
+    ],
+    "returnType": "void"
+  },
+  "fn_ai_activate_provider": {
+    "args": [
+      "p_provider_code: string"
+    ],
+    "returnType": "void"
+  },
+  "admission_is_admin": {
+    "args": [],
+    "returnType": "void"
+  },
+  "can_write_daily_metric_entry_v2": {
+    "args": [
+      "p_daily_report_id: string",
+      "p_daily_report_source_id: string",
+      "p_metric_definition_id: string",
+      "p_organization_unit_id: string",
+      "p_user_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_get_org_descendants": {
+    "args": [
+      "p_org_id: string"
+    ],
+    "returnType": "void"
+  },
+  "resolve_announcement_recipients": {
+    "args": [
+      "p_task_id: string"
+    ],
+    "returnType": "void"
+  },
+  "admission_current_system_role": {
+    "args": [],
+    "returnType": "void"
+  },
+  "kpi_create_assignment_from_template": {
+    "args": [
+      "p_assignee_organization_unit_id: string",
+      "p_assignee_type: string",
+      "p_assignee_user_id: string",
+      "p_effective_from: string",
+      "p_effective_to: string",
+      "p_notes: string",
+      "p_period_id: string",
+      "p_template_version_id: string"
+    ],
+    "returnType": "void"
+  },
+  "can_contribute_to_task": {
+    "args": [
+      "p_task_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_can_manage_unit": {
+    "args": [
+      "p_unit_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_resolve_assignment_item_actual": {
+    "args": [
+      "p_assignment_item_id: string"
+    ],
+    "returnType": "void"
+  },
+  "can_read_report_source": {
+    "args": [
+      "p_report_source_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_can_view_assignment": {
+    "args": [
+      "p_assignment_id: string"
+    ],
+    "returnType": "void"
+  },
+  "current_user_system_role": {
+    "args": [],
+    "returnType": "void"
+  },
+  "can_assign_task_to_user": {
+    "args": [
+      "p_target_user_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_resolve_assignment_item_score": {
+    "args": [
+      "p_assignment_item_id: string"
+    ],
+    "returnType": "void"
+  },
+  "can_manage_own_daily_report": {
+    "args": [
+      "p_daily_report_id: string"
+    ],
+    "returnType": "void"
+  },
+  "can_manage_announcement": {
+    "args": [
+      "p_task_id: string"
+    ],
+    "returnType": "void"
+  },
+  "current_user_primary_unit_id": {
+    "args": [],
+    "returnType": "void"
+  },
+  "preview_announcement_audience": {
+    "args": [
+      "p_task_id: string"
+    ],
+    "returnType": "void"
+  },
+  "set_announcement_audience": {
+    "args": [
+      "p_audience_mode: string",
+      "p_task_id: string",
+      "p_unit_ids: array",
+      "p_user_ids: array"
+    ],
+    "returnType": "void"
+  },
+  "is_user_in_manager_scope": {
+    "args": [
+      "p_target_user_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_can_view_assignment_item": {
+    "args": [
+      "p_assignment_item_id: string"
+    ],
+    "returnType": "void"
+  },
+  "fn_ai_finalize_usage": {
+    "args": [
+      "p_duration_ms: integer",
+      "p_embedding_tokens: integer",
+      "p_error_code: string",
+      "p_input_tokens: integer",
+      "p_output_tokens: integer",
+      "p_request_id: string",
+      "p_status: string"
+    ],
+    "returnType": "void"
+  },
+  "can_write_metric_entry": {
+    "args": [
+      "p_metric_definition_id: string",
+      "p_organization_unit_id: string",
+      "p_user_id: string"
+    ],
+    "returnType": "void"
+  },
+  "admission_is_executive": {
+    "args": [],
+    "returnType": "void"
+  },
+  "kpi_primary_unit_id": {
+    "args": [],
+    "returnType": "void"
+  },
+  "can_read_daily_report_detail": {
+    "args": [
+      "p_daily_report_id: string"
+    ],
+    "returnType": "void"
+  },
+  "is_unit_in_manager_scope": {
+    "args": [
+      "p_target_unit_id: string"
+    ],
+    "returnType": "void"
+  },
+  "can_attach_daily_report_source": {
+    "args": [
+      "p_daily_report_id: string",
+      "p_report_source_id: string"
+    ],
+    "returnType": "void"
+  },
+  "kpi_current_system_role": {
+    "args": [],
+    "returnType": "void"
+  },
+  "kpi_resolve_assignment_score": {
+    "args": [
+      "p_assignment_id: string"
+    ],
+    "returnType": "void"
+  },
+  "admission_user_unit_ids": {
+    "args": [],
+    "returnType": "void"
+  },
+  "get_manager_scope_staff": {
+    "args": [],
+    "returnType": "void"
+  },
+  "kpi_submit_manual_actual": {
+    "args": [
+      "p_assignment_item_binding_id: string",
+      "p_note: string",
+      "p_value_boolean: boolean",
+      "p_value_json: jsonb",
+      "p_value_numeric: number",
+      "p_value_text: string"
+    ],
+    "returnType": "void"
+  },
+  "is_member_of_unit": {
+    "args": [
+      "p_unit_id: string"
+    ],
+    "returnType": "void"
+  },
+  "mark_notification_read": {
+    "args": [
+      "p_notification_id: string"
+    ],
+    "returnType": "void"
+  },
+  "fn_ai_search_knowledge_chunks": {
+    "args": [
+      "p_match_count: integer",
+      "p_query_embedding: string",
+      "p_similarity_threshold: number"
+    ],
+    "returnType": "void"
+  },
+  "recalculate_admission_result": {
+    "args": [
+      "p_result_id: string"
+    ],
+    "returnType": "void"
+  },
+  "acknowledge_announcement": {
+    "args": [
+      "p_task_id: string"
+    ],
+    "returnType": "void"
+  }
+}

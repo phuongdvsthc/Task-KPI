@@ -1,0 +1,18 @@
+[
+  {
+    "id": "api-ai-intelligence",
+    "method": "POST",
+    "path": "/api/ai/daily-report/intelligence",
+    "classification": "capability",
+    "capability": "ai.generate",
+    "status": "pending_guard"
+  },
+  {
+    "id": "api-kpi-export",
+    "method": "GET",
+    "path": "/api/kpi/dashboard/export",
+    "classification": "capability_scope",
+    "capability": "reports.export",
+    "status": "pending_guard"
+  }
+]

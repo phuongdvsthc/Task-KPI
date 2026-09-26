@@ -1,0 +1,4588 @@
+{
+  "kpi_assignment_item_bindings": {
+    "required": [
+      "id",
+      "assignment_item_id",
+      "binding_key",
+      "source_type",
+      "scope_mode",
+      "source_config",
+      "filter_config",
+      "formula_config",
+      "binding_snapshot",
+      "is_active",
+      "sort_order",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "assignment_item_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_assignment_items.id`.<fk table='kpi_assignment_items' column='id'/>"
+      },
+      {
+        "name": "source_template_binding_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_template_item_bindings.id`.<fk table='kpi_template_item_bindings' column='id'/>"
+      },
+      {
+        "name": "binding_key",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "source_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "source_reference_id",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "aggregation_method",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "scope_mode",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "source_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "filter_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "formula_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "binding_snapshot",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "admission_change_history": {
+    "required": [
+      "id",
+      "entity_type",
+      "entity_id",
+      "action",
+      "changed_at",
+      "source_type"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "entity_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "entity_id",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "action",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "campaign_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_campaigns.id`.<fk table='admission_campaigns' column='id'/>"
+      },
+      {
+        "name": "old_data",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "new_data",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "changed_fields",
+        "type": "array",
+        "format": "text[]"
+      },
+      {
+        "name": "change_reason",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "changed_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "changed_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "request_id",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "source_type",
+        "type": "string",
+        "format": "text"
+      }
+    ]
+  },
+  "kpi_assignment_items": {
+    "required": [
+      "id",
+      "assignment_id",
+      "kpi_definition_id",
+      "weight",
+      "target_config",
+      "scoring_config",
+      "is_required",
+      "sort_order",
+      "definition_snapshot",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "assignment_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_assignments.id`.<fk table='kpi_assignments' column='id'/>"
+      },
+      {
+        "name": "source_template_item_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_template_items.id`.<fk table='kpi_template_items' column='id'/>"
+      },
+      {
+        "name": "kpi_definition_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_definitions.id`.<fk table='kpi_definitions' column='id'/>"
+      },
+      {
+        "name": "objective_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_objectives.id`.<fk table='kpi_objectives' column='id'/>"
+      },
+      {
+        "name": "weight",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "target_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "scoring_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "cap_percent",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "is_required",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "definition_snapshot",
+        "type": "jsonb",
+        "format": "jsonb",
+        "description": "Historical snapshot of KPI definition metadata at assignment creation time."
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "task_comments": {
+    "required": [
+      "id",
+      "task_id",
+      "user_id",
+      "content"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "task_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `tasks.id`.<fk table='tasks' column='id'/>"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "parent_comment_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `task_comments.id`.<fk table='task_comments' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "ai_usage_logs": {
+    "required": [
+      "id",
+      "request_id",
+      "task_type",
+      "provider",
+      "model",
+      "status"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "request_id",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "correlation_id",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "task_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "provider",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "model",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "input_tokens",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "output_tokens",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "embedding_tokens",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "total_tokens",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "is_estimated",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "duration_ms",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "error_code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "estimated_cost",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "organization_units": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "unit_type"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "parent_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "unit_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "admission_results": {
+    "required": [
+      "id",
+      "campaign_id",
+      "entry_mode",
+      "data_status",
+      "source_type",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "campaign_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_campaigns.id`.<fk table='admission_campaigns' column='id'/>"
+      },
+      {
+        "name": "registered_count",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "paid_count",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "entry_mode",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "data_status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "source_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "notes",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "finalized_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "finalized_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "reopened_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "reopened_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "reopen_reason",
+        "type": "string",
+        "format": "text"
+      }
+    ]
+  },
+  "ai_messages": {
+    "required": [
+      "id",
+      "conversation_id",
+      "role",
+      "content",
+      "status",
+      "sequence_number",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "conversation_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `ai_conversations.id`.<fk table='ai_conversations' column='id'/>"
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "sequence_number",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "model_code",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "input_tokens",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "output_tokens",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "completed_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "client_request_id",
+        "type": "string",
+        "format": "character varying"
+      }
+    ]
+  },
+  "admission_campaign_performance_v": {
+    "required": [],
+    "columns": [
+      {
+        "name": "campaign_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "campaign_code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "campaign_name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "campaign_year",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "period_number",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "campaign_status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "group_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_groups.id`.<fk table='admission_groups' column='id'/>"
+      },
+      {
+        "name": "group_code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "group_name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "plan_target",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "actual_registered",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "actual_paid",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "completion_rate",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "result_data_status",
+        "type": "string",
+        "format": "text"
+      }
+    ]
+  },
+  "access_permissions": {
+    "required": [
+      "id",
+      "module_id",
+      "code",
+      "name",
+      "action_code",
+      "supports_data_scope",
+      "risk_level",
+      "sort_order",
+      "is_active",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "module_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `access_modules.id`.<fk table='access_modules' column='id'/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "action_code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "supports_data_scope",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "risk_level",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "access_modules": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "sort_order",
+      "is_active",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "kpi_template_versions": {
+    "required": [
+      "id",
+      "template_id",
+      "version_no",
+      "status",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "template_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_templates.id`.<fk table='kpi_templates' column='id'/>"
+      },
+      {
+        "name": "version_no",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "effective_from",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "effective_to",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "published_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "task_evidence": {
+    "required": [
+      "id",
+      "task_id",
+      "uploaded_by",
+      "evidence_type"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "task_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `tasks.id`.<fk table='tasks' column='id'/>"
+      },
+      {
+        "name": "uploaded_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "evidence_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "file_url",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "external_url",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "storage_path",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "original_file_name",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "mime_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "file_size",
+        "type": "integer",
+        "format": "bigint"
+      }
+    ]
+  },
+  "ai_usage_reservations": {
+    "required": [
+      "id",
+      "request_id",
+      "user_id",
+      "task_type",
+      "expires_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "request_id",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "correlation_id",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "task_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "reserved_input_tokens",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "reserved_output_tokens",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "started_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "expires_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "completed_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "kpi_objectives": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "objective_level",
+      "status",
+      "sort_order",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "parent_objective_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_objectives.id`.<fk table='kpi_objectives' column='id'/>"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "period_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_periods.id`.<fk table='kpi_periods' column='id'/>"
+      },
+      {
+        "name": "objective_level",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "ai_prompt_definitions": {
+    "required": [
+      "id",
+      "prompt_key",
+      "name",
+      "feature_group",
+      "enabled",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "prompt_key",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "feature_group",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid"
+      }
+    ]
+  },
+  "kpi_template_items": {
+    "required": [
+      "id",
+      "template_version_id",
+      "kpi_definition_id",
+      "weight",
+      "target_config",
+      "scoring_config",
+      "is_required",
+      "sort_order",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "template_version_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_template_versions.id`.<fk table='kpi_template_versions' column='id'/>"
+      },
+      {
+        "name": "kpi_definition_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_definitions.id`.<fk table='kpi_definitions' column='id'/>"
+      },
+      {
+        "name": "objective_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_objectives.id`.<fk table='kpi_objectives' column='id'/>"
+      },
+      {
+        "name": "weight",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "target_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "scoring_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "cap_percent",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "is_required",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "access_role_permissions": {
+    "required": [
+      "role_id",
+      "permission_id",
+      "scope_code",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "role_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `access_roles.id`.<fk table='access_roles' column='id'/>"
+      },
+      {
+        "name": "permission_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `access_permissions.id`.<fk table='access_permissions' column='id'/>"
+      },
+      {
+        "name": "scope_code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "tasks": {
+    "required": [
+      "id",
+      "organization_unit_id",
+      "title",
+      "task_type",
+      "priority",
+      "status",
+      "progress",
+      "created_by",
+      "acknowledgement_required",
+      "content_version"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "parent_task_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `tasks.id`.<fk table='tasks' column='id'/>"
+      },
+      {
+        "name": "task_code",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "task_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "priority",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "progress",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "start_date",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "due_date",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "completed_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "owner_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "is_archived",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "publication_status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "acknowledgement_required",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "published_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "content_version",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "audience_mode",
+        "type": "string",
+        "format": "character varying"
+      }
+    ]
+  },
+  "profiles": {
+    "required": [
+      "id",
+      "full_name",
+      "system_role"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "employee_code",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "full_name",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "phone",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "avatar_url",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "system_role",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "job_title",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "report_source_metric_assignments": {
+    "required": [
+      "id",
+      "report_source_id",
+      "metric_definition_id",
+      "is_active",
+      "is_required",
+      "sort_order",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "report_source_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `report_sources.id`.<fk table='report_sources' column='id'/>"
+      },
+      {
+        "name": "metric_definition_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `metric_definitions.id`.<fk table='metric_definitions' column='id'/>"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "is_required",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "daily_report_sources": {
+    "required": [
+      "id",
+      "daily_report_id",
+      "report_source_id",
+      "sort_order",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "daily_report_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `daily_reports.id`.<fk table='daily_reports' column='id'/>"
+      },
+      {
+        "name": "report_source_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `report_sources.id`.<fk table='report_sources' column='id'/>"
+      },
+      {
+        "name": "source_name_snapshot",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "ai_conversations": {
+    "required": [
+      "id",
+      "owner_user_id",
+      "title",
+      "status",
+      "created_at",
+      "updated_at",
+      "last_message_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "owner_user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "last_message_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "access_audit_logs": {
+    "required": [
+      "id",
+      "action_code",
+      "target_type",
+      "metadata",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "actor_user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "action_code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "target_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "target_id",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "before_data",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "after_data",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "metadata",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "task_announcement_audience_units": {
+    "required": [
+      "task_id",
+      "organization_unit_id",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "task_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `tasks.id`.<fk table='tasks' column='id'/>"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "ai_usage_counters": {
+    "required": [
+      "id",
+      "scope_type",
+      "period_type",
+      "period_start"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "scope_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "scope_id",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "period_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "period_start",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "task_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "request_count",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "input_tokens",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "output_tokens",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "embedding_tokens",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "total_tokens",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "estimated_cost",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "kpi_manual_actual_entries": {
+    "required": [
+      "id",
+      "assignment_item_binding_id",
+      "assignment_item_id",
+      "entered_by",
+      "entered_at",
+      "config"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "assignment_item_binding_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_assignment_item_bindings.id`.<fk table='kpi_assignment_item_bindings' column='id'/>"
+      },
+      {
+        "name": "assignment_item_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_assignment_items.id`.<fk table='kpi_assignment_items' column='id'/>"
+      },
+      {
+        "name": "value_numeric",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "value_boolean",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "value_text",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "value_json",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "note",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "supersedes_entry_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_manual_actual_entries.id`.<fk table='kpi_manual_actual_entries' column='id'/>"
+      },
+      {
+        "name": "entered_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "entered_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      }
+    ]
+  },
+  "kpi_template_item_bindings": {
+    "required": [
+      "id",
+      "template_item_id",
+      "binding_key",
+      "source_type",
+      "scope_mode",
+      "source_config",
+      "filter_config",
+      "formula_config",
+      "is_active",
+      "sort_order",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "template_item_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_template_items.id`.<fk table='kpi_template_items' column='id'/>"
+      },
+      {
+        "name": "binding_key",
+        "type": "string",
+        "format": "text",
+        "description": "Logical source key such as primary, numerator, denominator. Allows one KPI item to use multiple sources."
+      },
+      {
+        "name": "source_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "source_reference_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Polymorphic UUID reference. Meaning depends on source_type; intentionally not constrained to a single source table."
+      },
+      {
+        "name": "aggregation_method",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "scope_mode",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "source_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "filter_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "formula_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "report_source_unit_assignments": {
+    "required": [
+      "id",
+      "report_source_id",
+      "organization_unit_id",
+      "is_active",
+      "sort_order",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "report_source_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `report_sources.id`.<fk table='report_sources' column='id'/>"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "admission_programs": {
+    "required": [
+      "id",
+      "group_id",
+      "code",
+      "name",
+      "training_level",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "group_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_groups.id`.<fk table='admission_groups' column='id'/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "training_level",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "duration",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid"
+      }
+    ]
+  },
+  "report_sources": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "category",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "ai_message_sources": {
+    "required": [
+      "id",
+      "message_id",
+      "rank",
+      "similarity_score",
+      "document_title_snapshot",
+      "chunk_content_snapshot",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "message_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `ai_messages.id`.<fk table='ai_messages' column='id'/>"
+      },
+      {
+        "name": "knowledge_document_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `ai_knowledge_documents.id`.<fk table='ai_knowledge_documents' column='id'/>"
+      },
+      {
+        "name": "knowledge_chunk_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `ai_knowledge_chunks.id`.<fk table='ai_knowledge_chunks' column='id'/>"
+      },
+      {
+        "name": "rank",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "similarity_score",
+        "type": "number",
+        "format": "real"
+      },
+      {
+        "name": "document_title_snapshot",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "chunk_content_snapshot",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "page_number_snapshot",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "metric_entries": {
+    "required": [
+      "id",
+      "metric_definition_id",
+      "organization_unit_id",
+      "value",
+      "source_type",
+      "period_start",
+      "period_end"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "metric_definition_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `metric_definitions.id`.<fk table='metric_definitions' column='id'/>"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "period_date",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "note",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "source_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "source_reference_id",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "period_start",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "period_end",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "daily_report_source_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `daily_report_sources.id`.<fk table='daily_report_sources' column='id'/>"
+      }
+    ]
+  },
+  "access_roles": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "level",
+      "is_system",
+      "is_active",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "level",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "is_system",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "daily_reports": {
+    "required": [
+      "id",
+      "report_date",
+      "user_id",
+      "organization_unit_id",
+      "work_status",
+      "source_channel",
+      "created_at",
+      "updated_at",
+      "report_status"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "report_date",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "work_status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "source_channel",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "interest_group",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "related_task_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `tasks.id`.<fk table='tasks' column='id'/>"
+      },
+      {
+        "name": "work_summary",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "issues",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "support_request",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "report_source_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `report_sources.id`.<fk table='report_sources' column='id'/>"
+      },
+      {
+        "name": "report_status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "submitted_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "off_note",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "status_note",
+        "type": "string",
+        "format": "text"
+      }
+    ]
+  },
+  "admission_groups": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "is_active",
+      "sort_order",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid"
+      }
+    ]
+  },
+  "ai_knowledge_documents": {
+    "required": [
+      "id",
+      "title",
+      "category",
+      "version_label",
+      "original_file_name",
+      "storage_bucket",
+      "storage_path",
+      "mime_type",
+      "file_size",
+      "content_hash",
+      "status",
+      "processing_status",
+      "visibility_type",
+      "created_at",
+      "updated_at",
+      "processing_attempts",
+      "chunk_count"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "category",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "version_label",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "original_file_name",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "storage_bucket",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "storage_path",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "mime_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "file_size",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "content_hash",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "processing_status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "visibility_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "error_message",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "effective_from",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "effective_until",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "published_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "published_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "processing_started_at",
+        "type": "string",
+        "format": "timestamp with time zone",
+        "description": "Timestamp when document processing job commenced"
+      },
+      {
+        "name": "processing_completed_at",
+        "type": "string",
+        "format": "timestamp with time zone",
+        "description": "Timestamp when document processing job completed or failed"
+      },
+      {
+        "name": "processing_attempts",
+        "type": "integer",
+        "format": "integer",
+        "description": "Number of times document processing has been attempted"
+      },
+      {
+        "name": "processing_lease_until",
+        "type": "string",
+        "format": "timestamp with time zone",
+        "description": "Worker lease expiration timestamp for distributed locking / atomic concurrency"
+      },
+      {
+        "name": "processing_worker_id",
+        "type": "string",
+        "format": "character varying",
+        "description": "Identifier of worker node currently holding processing lock"
+      },
+      {
+        "name": "chunk_count",
+        "type": "integer",
+        "format": "integer",
+        "description": "Total verified chunks generated and indexed with vector embeddings"
+      },
+      {
+        "name": "embedding_model",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "processing_fingerprint",
+        "type": "string",
+        "format": "character varying",
+        "description": "Hash fingerprint of extraction & chunking parameters for idempotency"
+      }
+    ]
+  },
+  "daily_report_reminders": {
+    "required": [
+      "id",
+      "target_user_id",
+      "organization_unit_id",
+      "report_date",
+      "reminder_type",
+      "reminded_by",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "target_user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "report_date",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "reminder_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "reminded_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "ai_prompt_versions": {
+    "required": [
+      "id",
+      "prompt_definition_id",
+      "version_number",
+      "status",
+      "output_mode",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "prompt_definition_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `ai_prompt_definitions.id`.<fk table='ai_prompt_definitions' column='id'/>"
+      },
+      {
+        "name": "version_number",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "system_prompt",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "user_prompt_template",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "output_mode",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "response_schema",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "default_temperature",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "default_max_output_tokens",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "provider_config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "notes",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "activated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "activated_by",
+        "type": "string",
+        "format": "uuid"
+      }
+    ]
+  },
+  "daily_report_task_links": {
+    "required": [
+      "id",
+      "daily_report_id",
+      "task_id",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "daily_report_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `daily_reports.id`.<fk table='daily_reports' column='id'/>"
+      },
+      {
+        "name": "task_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `tasks.id`.<fk table='tasks' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "admission_plans": {
+    "required": [
+      "id",
+      "admission_year",
+      "group_id",
+      "target_paid_count",
+      "status",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "admission_year",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "group_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_groups.id`.<fk table='admission_groups' column='id'/>"
+      },
+      {
+        "name": "unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "campaign_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_campaigns.id`.<fk table='admission_campaigns' column='id'/>"
+      },
+      {
+        "name": "program_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_programs.id`.<fk table='admission_programs' column='id'/>"
+      },
+      {
+        "name": "target_paid_count",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "notes",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "approved_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "approved_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid"
+      }
+    ]
+  },
+  "kpi_periods": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "period_type",
+      "start_date",
+      "end_date",
+      "status",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "period_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "start_date",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "end_date",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "task_updates": {
+    "required": [
+      "id",
+      "task_id",
+      "user_id",
+      "update_type"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "task_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `tasks.id`.<fk table='tasks' column='id'/>"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "update_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "progress",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "old_status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "new_status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "old_progress",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "new_progress",
+        "type": "integer",
+        "format": "integer"
+      }
+    ]
+  },
+  "kpi_assignments": {
+    "required": [
+      "id",
+      "period_id",
+      "template_id",
+      "template_version_id",
+      "assignee_type",
+      "status",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "period_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_periods.id`.<fk table='kpi_periods' column='id'/>"
+      },
+      {
+        "name": "template_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_templates.id`.<fk table='kpi_templates' column='id'/>"
+      },
+      {
+        "name": "template_version_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `kpi_template_versions.id`.<fk table='kpi_template_versions' column='id'/>"
+      },
+      {
+        "name": "assignee_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "assignee_user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "assignee_organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "assignee_unit_id_snapshot",
+        "type": "string",
+        "format": "uuid",
+        "description": "Organization context retained at assignment creation even if an individual later transfers units.\n\nNote:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "effective_from",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "effective_to",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "notes",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "assigned_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "assigned_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "activated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "closed_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "locked_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "cancelled_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "task_assignees": {
+    "required": [
+      "id",
+      "task_id",
+      "user_id",
+      "assignment_role",
+      "is_active"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "task_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `tasks.id`.<fk table='tasks' column='id'/>"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "assignment_role",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "assigned_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "assigned_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "organization_unit_id_snapshot",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "removed_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "first_viewed_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "last_viewed_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "last_viewed_version",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "acknowledged_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "acknowledged_version",
+        "type": "integer",
+        "format": "integer"
+      }
+    ]
+  },
+  "system_settings": {
+    "required": [
+      "id",
+      "setting_key",
+      "setting_type",
+      "is_public",
+      "created_at",
+      "updated_at",
+      "setting_group",
+      "sort_order"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "setting_key",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "setting_value",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "setting_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "is_public",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "setting_group",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      }
+    ]
+  },
+  "kpi_definitions": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "measurement_type",
+      "direction",
+      "default_scoring_method",
+      "is_active",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "category",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "measurement_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "unit_code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "direction",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "default_scoring_method",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "owner_organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "ai_usage_settings": {
+    "required": [
+      "id"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "ai_service_enabled",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "user_daily_request_limit",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "user_daily_token_limit",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "system_monthly_token_limit",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "system_monthly_budget_limit",
+        "type": "number",
+        "format": "numeric"
+      },
+      {
+        "name": "per_user_minute_request_limit",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "per_user_concurrent_limit",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "warning_threshold_pct",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "timezone",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "reservation_timeout_seconds",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "task_announcement_audience_users": {
+    "required": [
+      "task_id",
+      "user_id",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "task_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `tasks.id`.<fk table='tasks' column='id'/>"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "organization_members": {
+    "required": [
+      "id",
+      "organization_unit_id",
+      "user_id"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "member_role",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "is_primary",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "joined_at",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "left_at",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "access_user_roles": {
+    "required": [
+      "user_id",
+      "role_id",
+      "is_primary",
+      "is_active",
+      "assigned_at",
+      "source_code",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "role_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>\nThis is a Foreign Key to `access_roles.id`.<fk table='access_roles' column='id'/>"
+      },
+      {
+        "name": "is_primary",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "assigned_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "assigned_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "expires_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "source_code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "ai_provider_configs": {
+    "required": [
+      "id",
+      "provider_code",
+      "display_name",
+      "model",
+      "is_active",
+      "is_enabled",
+      "connection_status",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "provider_code",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "display_name",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "model",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "api_key_encrypted",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "api_key_iv",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "api_key_auth_tag",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "is_enabled",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "connection_status",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "last_tested_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "last_test_error_code",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "last_test_http_status",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid"
+      }
+    ]
+  },
+  "ai_knowledge_chunks": {
+    "required": [
+      "id",
+      "document_id",
+      "chunk_index",
+      "content",
+      "content_hash",
+      "token_count",
+      "embedding_model",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "document_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `ai_knowledge_documents.id`.<fk table='ai_knowledge_documents' column='id'/>"
+      },
+      {
+        "name": "chunk_index",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "content_hash",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "token_count",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "page_number",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "section_title",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "embedding",
+        "type": "string",
+        "format": "public.vector(768)"
+      },
+      {
+        "name": "embedding_model",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "kpi_templates": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "scope_type",
+      "is_active",
+      "config",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "scope_type",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "owner_organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "config",
+        "type": "jsonb",
+        "format": "jsonb"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  },
+  "admission_year_performance_v": {
+    "required": [],
+    "columns": [
+      {
+        "name": "admission_year",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "group_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_groups.id`.<fk table='admission_groups' column='id'/>"
+      },
+      {
+        "name": "group_code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "group_name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "total_campaigns",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "total_plan_target",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "total_actual_registered",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "total_actual_paid",
+        "type": "integer",
+        "format": "bigint"
+      },
+      {
+        "name": "overall_completion_rate",
+        "type": "number",
+        "format": "numeric"
+      }
+    ]
+  },
+  "metric_definitions": {
+    "required": [
+      "id",
+      "code",
+      "name",
+      "data_type",
+      "aggregation_type",
+      "frequency",
+      "target_direction",
+      "measurement_scope",
+      "source_type",
+      "entry_mode"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "organization_unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "category",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "data_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "aggregation_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "frequency",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "target_direction",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "allow_manual_entry",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "measurement_scope",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "source_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "entry_mode",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "calculation_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "numerator_metric_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `metric_definitions.id`.<fk table='metric_definitions' column='id'/>"
+      },
+      {
+        "name": "denominator_metric_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `metric_definitions.id`.<fk table='metric_definitions' column='id'/>"
+      }
+    ]
+  },
+  "admission_result_items": {
+    "required": [
+      "id",
+      "result_id",
+      "program_id",
+      "sort_order",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "result_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_results.id`.<fk table='admission_results' column='id'/>"
+      },
+      {
+        "name": "program_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_programs.id`.<fk table='admission_programs' column='id'/>"
+      },
+      {
+        "name": "registered_count",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "paid_count",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "not_converted_note",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "sort_order",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid"
+      }
+    ]
+  },
+  "admission_campaigns": {
+    "required": [
+      "id",
+      "group_id",
+      "code",
+      "name",
+      "year",
+      "period_number",
+      "status",
+      "is_active",
+      "created_at",
+      "updated_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "group_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `admission_groups.id`.<fk table='admission_groups' column='id'/>"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "year",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "period_number",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "start_date",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "end_date",
+        "type": "string",
+        "format": "date"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "format": "boolean"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "updated_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "updated_by",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "unit_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `organization_units.id`.<fk table='organization_units' column='id'/>"
+      }
+    ]
+  },
+  "notifications": {
+    "required": [
+      "id",
+      "user_id",
+      "notification_type",
+      "entity_type",
+      "entity_id",
+      "title",
+      "created_at"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Primary Key.<pk/>"
+      },
+      {
+        "name": "user_id",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "notification_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "entity_type",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "entity_id",
+        "type": "string",
+        "format": "uuid"
+      },
+      {
+        "name": "entity_version",
+        "type": "integer",
+        "format": "integer"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "format": "character varying"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "action_url",
+        "type": "string",
+        "format": "text"
+      },
+      {
+        "name": "created_by",
+        "type": "string",
+        "format": "uuid",
+        "description": "Note:\nThis is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>"
+      },
+      {
+        "name": "read_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      },
+      {
+        "name": "created_at",
+        "type": "string",
+        "format": "timestamp with time zone"
+      }
+    ]
+  }
+}
