@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TenantConfiguration",
+  "description": "Schema đặc tả cấu hình trường học / đơn vị đào tạo (Tenant Configuration Schema)",
+  "type": "object",
+  "required": [
+    "tenant_code",
+    "name",
+    "short_name",
+    "contact",
+    "timezone",
+    "root_unit",
+    "enabled_modules"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "tenant_code": {
+      "type": "string",
+      "description": "Mã định danh duy nhất của trường (In hoa, 2-20 ký tự, e.g. VNU, HUST, STHC)",
+      "pattern": "^[A-Z0-9_-]{2,20}$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Tên đầy đủ chính thức của trường",
+      "minLength": 3,
+      "maxLength": 255
+    },
+    "short_name": {
+      "type": "string",
+      "description": "Tên viết tắt hoặc tên thương hiệu ngắn",
+      "minLength": 2,
+      "maxLength": 50
+    },
+    "contact": {
+      "type": "object",
+      "description": "Thông tin liên hệ chính thức của trường",
+      "required": ["address", "phone", "email", "website"],
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 255
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^[0-9+() -]{7,25}$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "website": {
+          "type": "string",
+          "pattern": "^https?://.*$"
+        }
+      }
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Múi giờ IANA chuẩn (mặc định Asia/Ho_Chi_Minh)",
+      "default": "Asia/Ho_Chi_Minh"
+    },
+    "date_format": {
+      "type": "string",
+      "default": "dd/MM/yyyy"
+    },
+    "locale": {
+      "type": "string",
+      "default": "vi-VN"
+    },
+    "root_unit": {
+      "type": "object",
+      "description": "Đơn vị ROOT cấp trường trong cây cơ cấu tổ chức",
+      "required": ["code", "name", "unit_type"],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z0-9_-]{2,50}$",
+          "description": "Mã đơn vị ROOT (e.g. VNU_ROOT, STHC)"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 255,
+          "description": "Tên đơn vị ROOT (e.g. Ban Giám hiệu, Ban Giám đốc)"
+        },
+        "unit_type": {
+          "type": "string",
+          "enum": ["board", "school", "faculty", "department", "center", "other"],
+          "default": "board"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 500
+        }
+      }
+    },
+    "enabled_modules": {
+      "type": "array",
+      "description": "Danh sách các module được kích hoạt cho trường",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "task",
+          "kpi",
+          "team_report",
+          "admissions",
+          "dashboard",
+          "system",
+          "ai",
+          "notification",
+          "user_org",
+          "file_evidence",
+          "access_control"
+        ]
+      }
+    },
+    "appearance": {
+      "type": "object",
+      "description": "Cấu hình giao diện và tài nguyên hình ảnh",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["light", "dark", "system"],
+          "default": "light"
+        },
+        "accent": {
+          "type": "string",
+          "enum": ["indigo", "blue", "teal"],
+          "default": "indigo"
+        },
+        "logo_path": {
+          "type": "string"
+        },
+        "logo_small_path": {
+          "type": "string"
+        },
+        "favicon_path": {
+          "type": "string"
+        }
+      }
+    },
+    "operational_defaults": {
+      "type": "object",
+      "description": "Các giá trị mặc định trong vận hành",
+      "additionalProperties": false,
+      "properties": {
+        "daily_report_deadline": {
+          "type": "string",
+          "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$",
+          "default": "17:30"
+        },
+        "working_days": {
+          "type": "string",
+          "default": "1,2,3,4,5"
+        }
+      }
+    }
+  }
+}

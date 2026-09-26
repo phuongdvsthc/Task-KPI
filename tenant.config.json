@@ -1,0 +1,42 @@
+{
+  "$schema": "./docs/architecture/tenant.config.schema.json",
+  "tenantCode": "VTC",
+  "tenantName": "Trường Cao đẳng Công nghệ và Du lịch",
+  "tenantShortName": "VTC",
+  "contactInfo": {
+    "email": "tuyensinh@vtc.edu.vn",
+    "phone": "028 3822 5900",
+    "address": "Số 123 Đường Nguyễn Tri Phương, Phường 5, Quận 10, TP. Hồ Chí Minh"
+  },
+  "website": "https://vtc.edu.vn",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "dateFormat": "DD/MM/YYYY",
+  "locale": "vi",
+  "rootUnit": {
+    "code": "VTC",
+    "name": "Trường Cao đẳng Công nghệ và Du lịch",
+    "unitType": "school",
+    "description": "Đơn vị gốc cấp trường (ROOT)"
+  },
+  "enabledModules": [
+    "task",
+    "kpi",
+    "team_report",
+    "admissions",
+    "dashboard",
+    "system",
+    "ai",
+    "notification",
+    "user_org",
+    "file_evidence",
+    "access_control"
+  ],
+  "appName": "Hệ thống Quản lý Công việc & Đánh giá KPI - VTC",
+  "logoPath": "/system-assets/logo.png",
+  "logoSmallPath": "/system-assets/logo-small.png",
+  "faviconPath": "/system-assets/favicon.ico",
+  "dailyReportDeadline": "17:30",
+  "workingDays": "1,2,3,4,5",
+  "appearanceMode": "light",
+  "appearanceAccent": "indigo"
+}
