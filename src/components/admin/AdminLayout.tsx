@@ -98,48 +98,57 @@ export const AdminLayout: React.FC = () => {
   }, []);
 
   const renderTabs = () => {
+    const getTabProps = (isActive: boolean) => ({
+      className: `px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors border-b-2 ${
+        isActive
+          ? 'font-semibold'
+          : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 border-transparent'
+      }`,
+      style: isActive ? { color: 'var(--color-primary)', borderColor: 'var(--color-primary)' } : undefined
+    });
+
     return (
-      <div className="flex border-b border-slate-200 mb-6 overflow-x-auto">
-        <a href="#/admin/dashboard" className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${isDashboard ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-indigo-600 hover:border-indigo-600 border-b-2 border-transparent'}`}>
+      <div className="flex border-b border-slate-200 dark:border-slate-800 mb-6 overflow-x-auto">
+        <a href="#/admin/dashboard" {...getTabProps(isDashboard)}>
           Tổng quan hệ thống
         </a>
         {canManageUsers && (
-          <a href="#/admin/users" className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${isUsers ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-indigo-600 hover:border-indigo-600 border-b-2 border-transparent'}`}>
+          <a href="#/admin/users" {...getTabProps(isUsers)}>
             Quản lý Người dùng
           </a>
         )}
         {canManageOrgs && (
-          <a href="#/admin/organization-units" className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${isOrgs ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-indigo-600 hover:border-indigo-600 border-b-2 border-transparent'}`}>
+          <a href="#/admin/organization-units" {...getTabProps(isOrgs)}>
             Cơ cấu tổ chức
           </a>
         )}
         {canManageMetrics && (
-          <a href="#/admin/metrics" className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${isMetrics ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-indigo-600 hover:border-indigo-600 border-b-2 border-transparent'}`}>
+          <a href="#/admin/metrics" {...getTabProps(isMetrics)}>
             Quản lý Chỉ số
           </a>
         )}
         {canManageSettings && (
-          <a href="#/admin/report-sources" className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${isReportSources ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-indigo-600 hover:border-indigo-600 border-b-2 border-transparent'}`}>
+          <a href="#/admin/report-sources" {...getTabProps(isReportSources)}>
             Kênh / Nguồn báo cáo
           </a>
         )}
         {canViewAdmissions && (
-          <a href="#/admissions" className="px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors text-slate-500 hover:text-indigo-600 hover:border-indigo-600 border-b-2 border-transparent">
+          <a href="#/admissions" className="px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 border-b-2 border-transparent">
             Danh mục Tuyển sinh
           </a>
         )}
         {canManageSettings && (
-          <a href="#/admin/settings" className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${isSettings ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-indigo-600 hover:border-indigo-600 border-b-2 border-transparent'}`}>
+          <a href="#/admin/settings" {...getTabProps(isSettings)}>
             Cấu hình hệ thống
           </a>
         )}
         {canManageAi && (
-          <a href="#/admin/ai-settings" className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${isAiSettings ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-indigo-600 hover:border-indigo-600 border-b-2 border-transparent'}`}>
+          <a href="#/admin/ai-settings" {...getTabProps(isAiSettings)}>
             Cấu hình AI
           </a>
         )}
         {canManageKnowledge && (
-          <a href="#/admin/knowledge-base" className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${isKnowledgeBase ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-indigo-600 hover:border-indigo-600 border-b-2 border-transparent'}`}>
+          <a href="#/admin/knowledge-base" {...getTabProps(isKnowledgeBase)}>
             Kho tài liệu AI
           </a>
         )}

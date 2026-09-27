@@ -125,7 +125,7 @@ export const AppLayout: React.FC = () => {
   const canManageKpi = hasCapability(CAPABILITIES.KPI_MANAGE);
 
   return (
-    <div id="app-container" className="flex min-h-screen bg-slate-100/70 antialiased overflow-x-hidden">
+    <div id="app-container" className="flex min-h-screen bg-slate-100/70 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden transition-colors">
       {/* Navigation Sidebar */}
       <Sidebar
         activeTab={activeTab}

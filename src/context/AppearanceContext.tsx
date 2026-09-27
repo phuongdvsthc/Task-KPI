@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { systemSettingsService, PublicSettings } from '../services/system-settings.service';
+import { useSystemSettings } from './SystemSettingsContext';
 
 export type AppearanceMode = 'light' | 'dark' | 'system';
 export type AppearanceAccent = 'indigo' | 'blue' | 'teal';
@@ -21,6 +22,9 @@ const VALID_MODES: AppearanceMode[] = ['light', 'dark', 'system'];
 const VALID_ACCENTS: AppearanceAccent[] = ['indigo', 'blue', 'teal'];
 
 export const AppearanceProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const systemSettingsCtx = useSystemSettings();
+  const settings = systemSettingsCtx?.settings;
+
   const [mode, setModeState] = useState<AppearanceMode>(() => {
     if (typeof window === 'undefined') return 'light';
     const saved = localStorage.getItem(STORAGE_MODE_KEY);
@@ -42,18 +46,45 @@ export const AppearanceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [resolvedMode, setResolvedMode] = useState<'light' | 'dark'>('light');
   const [isReady, setIsReady] = useState(false);
 
-  // Load from public settings API on mount if available
+  // Sync with SystemSettingsContext settings if available
+  useEffect(() => {
+    if (!settings) return;
+    const rawMode = settings.appearanceMode || settings.appearance_mode;
+    const rawAccent = settings.appearanceAccent || settings.appearance_accent;
+
+    if (rawMode && VALID_MODES.includes(rawMode as AppearanceMode)) {
+      setModeState(rawMode as AppearanceMode);
+      try {
+        localStorage.setItem(STORAGE_MODE_KEY, rawMode);
+      } catch {}
+    }
+    if (rawAccent && VALID_ACCENTS.includes(rawAccent as AppearanceAccent)) {
+      setAccentState(rawAccent as AppearanceAccent);
+      try {
+        localStorage.setItem(STORAGE_ACCENT_KEY, rawAccent);
+      } catch {}
+    }
+    setIsReady(true);
+  }, [settings?.appearanceMode, settings?.appearance_mode, settings?.appearanceAccent, settings?.appearance_accent]);
+
+  // Load from public settings API on mount as fallback
   useEffect(() => {
     let isMounted = true;
-    systemSettingsService.getPublicSettings().then((pub: PublicSettings & { appearance_mode?: string; appearance_accent?: string }) => {
+    systemSettingsService.getPublicSettings().then((pub: any) => {
       if (!isMounted) return;
-      if (pub.appearance_mode && VALID_MODES.includes(pub.appearance_mode as AppearanceMode)) {
-        setModeState(pub.appearance_mode as AppearanceMode);
-        localStorage.setItem(STORAGE_MODE_KEY, pub.appearance_mode);
+      const rawMode = pub.appearanceMode || pub.appearance_mode;
+      const rawAccent = pub.appearanceAccent || pub.appearance_accent;
+      if (rawMode && VALID_MODES.includes(rawMode as AppearanceMode)) {
+        setModeState(rawMode as AppearanceMode);
+        try {
+          localStorage.setItem(STORAGE_MODE_KEY, rawMode);
+        } catch {}
       }
-      if (pub.appearance_accent && VALID_ACCENTS.includes(pub.appearance_accent as AppearanceAccent)) {
-        setAccentState(pub.appearance_accent as AppearanceAccent);
-        localStorage.setItem(STORAGE_ACCENT_KEY, pub.appearance_accent);
+      if (rawAccent && VALID_ACCENTS.includes(rawAccent as AppearanceAccent)) {
+        setAccentState(rawAccent as AppearanceAccent);
+        try {
+          localStorage.setItem(STORAGE_ACCENT_KEY, rawAccent);
+        } catch {}
       }
       setIsReady(true);
     }).catch(() => {
@@ -104,6 +135,7 @@ export const AppearanceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     root.classList.add(resolvedMode);
     root.setAttribute('data-theme-mode', resolvedMode);
     root.setAttribute('data-theme-accent', accent);
+    root.style.colorScheme = resolvedMode;
   }, [resolvedMode, accent]);
 
   const setAppearance = (newMode: AppearanceMode, newAccent: AppearanceAccent) => {
@@ -119,6 +151,18 @@ export const AppearanceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     } catch {
       // fallback
     }
+
+    // Immediately reflect to DOM
+    const root = document.documentElement;
+    const actualResolved: 'light' | 'dark' = safeMode === 'system'
+      ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      : (safeMode === 'dark' ? 'dark' : 'light');
+    setResolvedMode(actualResolved);
+    root.classList.remove('dark', 'light');
+    root.classList.add(actualResolved);
+    root.setAttribute('data-theme-mode', actualResolved);
+    root.setAttribute('data-theme-accent', safeAccent);
+    root.style.colorScheme = actualResolved;
   };
 
   return (

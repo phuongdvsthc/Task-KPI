@@ -4317,10 +4317,10 @@ export async function startServer() {
         logoPath: settingsMap.logo_path || '',
         logoSmallPath: settingsMap.logo_small_path || '',
         faviconPath: settingsMap.favicon_path || '',
-        dailyReportDeadline: settingsMap.daily_report_deadline || '17:30',
-        workingDays: settingsMap.working_days || '1,2,3,4,5',
         appearanceMode,
         appearanceAccent,
+        appearance_mode: appearanceMode,
+        appearance_accent: appearanceAccent,
         enabledModules: enabledModulesList
       });
     } catch (err: any) {

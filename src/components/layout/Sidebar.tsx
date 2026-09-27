@@ -176,12 +176,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Main Sidebar Element */}
       <aside
         id="app-sidebar"
-        className={`fixed inset-y-0 left-0 z-50 flex flex-col border-r border-slate-200/90 bg-white shadow-[1px_0_4px_rgba(0,0,0,0.02)] transition-all duration-200 ease-in-out md:static md:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-50 flex flex-col border-r border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-[1px_0_4px_rgba(0,0,0,0.02)] transition-all duration-200 ease-in-out md:static md:translate-x-0 ${
           isMobileOpen ? 'translate-x-0 w-72 sm:w-80 shadow-2xl' : '-translate-x-full md:translate-x-0 invisible md:visible'
         } ${isCollapsed ? 'md:w-20' : 'md:w-72'}`}
       >
         {/* Top Header: Branding & Toggle Button */}
-        <div className={`flex h-16 items-center border-b border-slate-200/80 px-4 ${
+        <div className={`flex h-16 items-center border-b border-slate-200/80 dark:border-slate-800 px-4 ${
           isCollapsed ? 'md:justify-center md:px-2' : 'justify-between'
         }`}>
           {/* Logo & App Name */}
@@ -189,19 +189,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
             isCollapsed ? 'md:hidden' : 'flex'
           }`}>
             {logoSrc ? (
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-xs p-1 border border-slate-200 overflow-hidden">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-slate-800 shadow-xs p-1 border border-slate-200 dark:border-slate-700 overflow-hidden">
                 <img src={logoSrc} alt="Logo" className="w-full h-full object-contain" />
               </div>
             ) : (
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-900 text-white shadow-xs">
-                <GraduationCap className="h-6 w-6 text-indigo-200" />
+              <div
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white shadow-xs"
+                style={{ backgroundColor: 'var(--color-primary)' }}
+              >
+                <GraduationCap className="h-6 w-6 text-white/90" />
               </div>
             )}
             <div className="flex flex-col overflow-hidden min-w-0">
-              <span className="truncate text-sm font-bold tracking-tight text-slate-900">
+              <span className="truncate text-sm font-bold tracking-tight text-slate-900 dark:text-white">
                 {settings?.appName || 'School Task & KPI'}
               </span>
-              <span className="truncate text-[11px] text-slate-500 font-medium">
+              <span className="truncate text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 {settings?.organizationShortName || settings?.organizationName || 'Quản lý hệ thống'}
               </span>
             </div>
@@ -209,11 +212,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
           {/* Collapsed Mode Logo (Desktop Only) */}
           {isCollapsed && (
-            <div className="hidden md:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white p-1 border border-slate-200 overflow-hidden shadow-xs" title={settings?.appName || 'School Task & KPI'}>
+            <div className="hidden md:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-slate-800 p-1 border border-slate-200 dark:border-slate-700 overflow-hidden shadow-xs" title={settings?.appName || 'School Task & KPI'}>
               {logoSrc ? (
                 <img src={logoSrc} alt="Logo" className="w-full h-full object-contain" />
               ) : (
-                <div className="flex h-full w-full items-center justify-center rounded-lg bg-indigo-900 text-white font-bold text-sm">
+                <div
+                  className="flex h-full w-full items-center justify-center rounded-lg text-white font-bold text-sm"
+                  style={{ backgroundColor: 'var(--color-primary)' }}
+                >
                   {settings?.organizationShortName?.charAt(0) || 'S'}
                 </div>
               )}
@@ -227,7 +233,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             onClick={onToggleCollapse}
             aria-label={isCollapsed ? 'Mở rộng thanh điều hướng' : 'Thu gọn thanh điều hướng'}
             title={isCollapsed ? 'Mở rộng thanh điều hướng' : 'Thu gọn thanh điều hướng'}
-            className={`hidden md:flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-slate-900 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-500 transition-colors ${
+            className={`hidden md:flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white focus:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-500 transition-colors ${
               isCollapsed ? 'mt-2' : ''
             }`}
           >
@@ -244,7 +250,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             type="button"
             onClick={onCloseMobile}
             aria-label="Đóng thanh điều hướng"
-            className="flex md:hidden h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-100 hover:text-slate-900 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-500 transition-colors"
+            className="flex md:hidden h-8 w-8 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white focus:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-500 transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -252,16 +258,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         {/* Unit Info Box */}
         {primaryUnit && !isCollapsed && (
-          <div className="mx-4 mt-3 rounded-xl border border-slate-200/80 bg-slate-50/80 p-3">
+          <div className="mx-4 mt-3 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/80 p-3">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-indigo-100/70 text-indigo-800">
-                <Building2 className="h-4 w-4" />
+              <div
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-white"
+                style={{ backgroundColor: 'var(--color-primary)' }}
+              >
+                <Building2 className="h-4 w-4 text-white" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-xs font-semibold text-slate-800" title={primaryUnit.name}>
+                <p className="truncate text-xs font-semibold text-slate-800 dark:text-slate-200" title={primaryUnit.name}>
                   {primaryUnit.name}
                 </p>
-                <p className="truncate text-[11px] text-slate-500">
+                <p className="truncate text-[11px] text-slate-500 dark:text-slate-400">
                   Mã: {primaryUnit.code}
                 </p>
               </div>
@@ -273,9 +282,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {primaryUnit && isCollapsed && (
           <div className="hidden md:flex justify-center mt-3">
             <div 
-              className="group relative flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 border border-slate-200 text-indigo-700 hover:bg-indigo-50"
+              className="group relative flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
             >
-              <Building2 className="h-4 w-4" />
+              <Building2 className="h-4 w-4" style={{ color: 'var(--color-primary)' }} />
               {/* Tooltip */}
               <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 hidden group-hover:flex flex-col px-2.5 py-1.5 bg-slate-900 text-white text-xs rounded-lg shadow-lg z-50 whitespace-nowrap pointer-events-none">
                 <span className="font-semibold">{primaryUnit.name}</span>
@@ -288,7 +297,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Navigation Menu */}
         <div className={`flex-1 overflow-y-auto py-3 ${isCollapsed ? 'md:px-2 px-4' : 'px-4'}`}>
           {!isCollapsed && (
-            <div className="mb-2 px-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+            <div className="mb-2 px-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
               Menu Chức Năng
             </div>
           )}
@@ -307,6 +316,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       onSelectTab(item.id);
                       onCloseMobile();
                     }}
+                    style={isActive ? { backgroundColor: 'var(--color-primary)' } : undefined}
                     aria-current={isActive ? 'page' : undefined}
                     className={`group/btn flex w-full items-center rounded-xl text-sm font-medium transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                       isCollapsed 
@@ -314,14 +324,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         : 'justify-between px-3 py-2.5'
                     } ${
                       isActive
-                        ? 'bg-indigo-900 text-white shadow-xs'
-                        : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                        ? 'text-white shadow-xs'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
                     }`}
                   >
                     <div className={`flex items-center gap-3 ${isCollapsed ? 'md:justify-center' : ''}`}>
                       <Icon
                         className={`h-5 w-5 shrink-0 transition-colors ${
-                          isActive ? 'text-white' : 'text-slate-500 group-hover/btn:text-slate-800'
+                          isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400 group-hover/btn:text-slate-800 dark:group-hover/btn:text-slate-200'
                         }`}
                       />
                       <span className={isCollapsed ? 'md:hidden inline' : 'inline'}>
@@ -334,7 +344,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       {item.adminOnly && (
                         <span
                           className={`rounded-md px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${
-                            isActive ? 'bg-indigo-800 text-indigo-200' : 'bg-amber-100 text-amber-800'
+                            isActive ? 'bg-black/20 text-white' : 'bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300'
                           }`}
                         >
                           Admin
@@ -343,7 +353,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       {item.readOnlyBadge && (
                         <span
                           className={`rounded px-1.5 py-0.5 text-[10px] font-medium ${
-                            isActive ? 'bg-indigo-800/80 text-indigo-200' : 'bg-slate-100 text-slate-600'
+                            isActive ? 'bg-black/20 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
                           }`}
                           title="Chế độ xem báo cáo (Chỉ đọc)"
                         >
@@ -351,7 +361,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         </span>
                       )}
                       {isActive && !item.adminOnly && !item.readOnlyBadge && (
-                        <ChevronRight className="h-4 w-4 text-indigo-300" />
+                        <ChevronRight className="h-4 w-4 text-white/80" />
                       )}
                     </div>
                   </button>
@@ -374,11 +384,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Bottom Role Info & Logout */}
-        <div className={`border-t border-slate-200/80 p-3 ${isCollapsed ? 'md:p-2' : 'p-4'}`}>
+        <div className={`border-t border-slate-200/80 dark:border-slate-800 p-3 ${isCollapsed ? 'md:p-2' : 'p-4'}`}>
           {!isCollapsed && (
-            <div className="mb-2.5 flex items-center justify-between rounded-xl bg-slate-50 px-3 py-2 text-xs border border-slate-100">
-              <span className="text-slate-500 font-medium">Vai trò:</span>
-              <span className="font-semibold capitalize text-indigo-900">
+            <div className="mb-2.5 flex items-center justify-between rounded-xl bg-slate-50 dark:bg-slate-800/80 px-3 py-2 text-xs border border-slate-100 dark:border-slate-700/80">
+              <span className="text-slate-500 dark:text-slate-400 font-medium">Vai trò:</span>
+              <span
+                className="font-semibold capitalize"
+                style={{ color: 'var(--color-primary)' }}
+              >
                 {systemRole || 'staff'}
               </span>
             </div>
@@ -391,7 +404,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               type="button"
               onClick={signOut}
               aria-label={`Đăng xuất (${systemRole || 'Cán bộ'})`}
-              className={`flex w-full items-center rounded-xl border border-slate-200 font-medium text-slate-700 hover:bg-red-50 hover:text-red-700 hover:border-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 transition-colors ${
+              className={`flex w-full items-center rounded-xl border border-slate-200 dark:border-slate-700 font-medium text-slate-700 dark:text-slate-300 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-700 dark:hover:text-red-400 hover:border-red-200 dark:hover:border-red-800 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 transition-colors ${
                 isCollapsed 
                   ? 'md:justify-center md:h-10 md:p-0 justify-center gap-2 px-3 py-2 text-sm' 
                   : 'justify-center gap-2 px-3 py-2 text-sm'

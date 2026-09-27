@@ -20,6 +20,8 @@ export interface PublicSettings {
   workingDays?: string;
   appearanceMode?: string;
   appearanceAccent?: string;
+  appearance_mode?: string;
+  appearance_accent?: string;
   enabledModules?: string[];
 }
 
@@ -47,6 +49,8 @@ export const DEFAULT_PUBLIC_SETTINGS: PublicSettings = {
   workingDays: '1,2,3,4,5',
   appearanceMode: 'light',
   appearanceAccent: 'indigo',
+  appearance_mode: 'light',
+  appearance_accent: 'indigo',
   enabledModules: [
     'task',
     'kpi',
